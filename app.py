@@ -14,25 +14,43 @@ st.set_page_config(
 )
 
 # =========================
-# CUSTOM STYLING
+# CUSTOM STYLING (Orange, White & Black)
 # =========================
 st.markdown("""
 <style>
-body {
+/* Main Background and Content Text */
+body, .stApp {
     background-color: #ffffff;
+    color: #000000;
 }
-.stApp {
-    background-color: #ffffff;
-    color: black;
+
+/* Titles and Headers */
+h1, h2, h3, h4, h5, h6, [data-testid="stHeader"] {
+    color: #ff6600 !important;
 }
-h1, h2, h3 {
-    color: #ff6600;
-}
+
+/* Sidebar Styling */
 section[data-testid="stSidebar"] {
-    background-color: black;
+    background-color: #000000 !important;
 }
 section[data-testid="stSidebar"] * {
-    color: white !important;
+    color: #ffffff !important;
+}
+
+/* Info Messages styling adjustment */
+.stAlert p {
+    color: #000000 !important;
+}
+
+/* Customize Form Buttons to Match Orange Theme */
+button[kind="primaryFormSubmit"] {
+    background-color: #ff6600 !important;
+    color: #ffffff !important;
+    border: none !important;
+}
+button[kind="primaryFormSubmit"]:hover {
+    background-color: #cc5200 !important;
+    color: #ffffff !important;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -279,4 +297,4 @@ elif app_mode == "Consumables":
         display_file(FOLDERS["Consumables"], selected_consumable)
     else:
         st.info("Select a consumable record document from the sidebar to view.")
-    
+            
