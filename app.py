@@ -182,7 +182,7 @@ st.title("📂 Admin Document Portal")
 
 with st.sidebar:
     st.header("Navigation")
-    app_mode = st.radio("Go to:", ["Meetings", "Reports", "Stock", "Consumables"])
+    app_mode = st.radio("Go to:", ["Meetings", "Reports", "Stock"])
     st.markdown("---")
 
 # =========================
@@ -287,14 +287,3 @@ elif app_mode == "Stock":
         )
     except Exception as e:
         st.error(f"Error loading register: {e}")
-
-elif app_mode == "Consumables":
-    with st.sidebar:
-        consumable_files = get_files(FOLDERS["Consumables"])
-        selected_consumable = searchable_selectbox("Consumables", consumable_files)
-    
-    if selected_consumable != "None":
-        display_file(FOLDERS["Consumables"], selected_consumable)
-    else:
-        st.info("Select a consumable record document from the sidebar to view.")
-            
